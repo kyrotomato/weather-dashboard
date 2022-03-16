@@ -12,14 +12,17 @@ var todayForecast = document.getElementById("today-weather");
 var cTemp = 0;
 var cHumid = 0;
 var cWind = 0;
+var city = 0;
 
 button.addEventListener("click", function(response){
 //function containing the fetch from API
 fetch("https://api.openweathermap.org/data/2.5/weather?q=" +searchForm.value+ "&appid=" + APIkey)
     .then(Response => Response.json())
+    //.then(data => console.log(data))
     .then(data => {
     //store data in variables
-    var city = response.data["name"];
+    console.log(data);
+    city = data["name"];
     cTemp = data["main"]["temp"];
     cHumid = data["main"]["humidity"];
     cWind = data["wind"]["speed"];
