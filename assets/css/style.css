@@ -1,0 +1,25 @@
+
+.todayContainer{
+    border: black 2px solid;
+    margin-bottom: 15px;
+}
+h4{
+    font-weight: bolder;
+    font-size: x-large;
+}
+.card{
+    background-color: #000033;
+    margin-right: 5px;
+}
+.card-header{
+    color: white;
+}
+.card-content{
+    color: white;
+}
+.title{
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,0,255,1) 52%, rgba(0,212,255,1) 100%); 
+    color: white;
+    font-size: large;
+}
