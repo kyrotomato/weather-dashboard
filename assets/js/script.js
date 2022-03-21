@@ -15,7 +15,10 @@ var latitude = "";
 var longitude = "";
 
 //format date
-const todayDate = new Date();
+
+
+
+
 //format
 
 button.addEventListener("click", function (response) {
@@ -27,6 +30,8 @@ button.addEventListener("click", function (response) {
             //store data in variables
             console.log(data);
             //variables for data
+            var todayDate = moment().toDate();
+            var todayDateFormatted = moment(todayDate).format("MM/DD/YYYY");
             var city = data["name"];
             var cTemp = data["main"]["temp"];
             var cHumid = data["main"]["humidity"];
@@ -34,12 +39,12 @@ button.addEventListener("click", function (response) {
             var latitude = data["coord"]["lat"];
             var longitude = data["coord"]["lon"];
             //adding data into elements
-            cityName.innerText = city;
-            curDate.innerText = todayDate;
+            cityName.innerText = city + " (" + todayDateFormatted +")";
+            curDate.innerText = todayDateFormatted;
             currentTemp.innerText = "Temp " + cTemp;
             currentHumid.innerText = "Humidity " + cHumid + "%";
-            currentWind.innerText = "Wind " + cWind;
-            $(currentDisplayEl).addClass("todayContainer")
+            currentWind.innerText = "Wind " + cWind + " MPH";
+            $(currentDisplayEl).addClass("todayContainer");
             //date
             fivedayAPI(latitude, longitude)
         })
@@ -63,15 +68,18 @@ var fivedayForecast = function (data) {
 
     for (var i = 1; i < 6; i++) {
         //date and variables [i] = day
-        var todayDate = new Date();
+        //var date variables and formatting
+        var todayDate = moment().toDate();
+        var nextDay = moment(todayDate).add([i], "days");
+        var nextDayFormatted = moment(nextDay).format("MM/DD/YYYY");
+        //forecast variables
         var foreDay = data.daily[i];
-        console.log(foreDay);
+        //console.log(foreDay);
         var foreTemp = data.daily[i].temp.day;
-        console.log(foreTemp);
+        //console.log(foreTemp);
         var foreHumid = data.daily[i].humidity;
-        console.log(foreHumid);
+        //console.log(foreHumid);
         var foreWind = data.daily[i].wind_speed;
-        console.log(foreWind);
 
         //create elements to store each individual variable
 
@@ -87,14 +95,15 @@ var fivedayForecast = function (data) {
         createDivEl.appendChild(createHumidEl);
         createDivEl.appendChild(createWindEl);
         //apply the data to the elements
-        createDateEl.innerText = todayDate;
+        createDateEl.innerText = nextDayFormatted;
+        //degrees?
         createTempEl.innerText = "Temp " + foreTemp ;
         createHumidEl.innerText = "Humidity " + foreHumid + "%";
-        createWindEl.innerText = foreWind + " Knots";
+        createWindEl.innerText = foreWind + " MPH";
 
         //add bulma API styling
         $(createDivEl).addClass("column card");
-        $(createDateEl).addClass("card-header");
+        $(createDateEl).addClass("card-header ");
         $(createTempEl).addClass("card-content");
         $(createHumidEl).addClass("card-content");
         $(createWindEl).addClass("card-content");

@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>Weather Dashboard</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -27,9 +28,9 @@
       <div id=searchformcont class="column">
 
         <div id="searchform">
-          <h1>Search for a City</h1>
+          <h1 class="is-size-5">Search for a City</h1>
           <div class="searchbar">
-            <input type="text" placeholder="Search a city.." class="input">
+            <input type="text" placeholder="Search a city.." class="input is-info">
             <div class="searchBtn "> <button type="button " class="btn btn-primary is-large submit button is-info">   Search   </button> </div>
           </div>
           </div>
@@ -45,11 +46,11 @@
             <!--today-->
             <div id="currentweather">
               <div class="weatherContainer">
-                <h4 id="city"></h4>
-                <p id="date"> </p>
-                <p id="temp"></p>
-                <p id="wind"></p>
-                <p id="humidity"></p>
+                <h4 id="city" ></h4>
+                <p id="date" class="has-text-weight-semibold"> </p>
+                <p id="temp" class="has-text-weight-semibold"></p>
+                <p id="wind" class="has-text-weight-semibold"></p>
+                <p id="humidity" class="has-text-weight-semibold"></p>
                 <p id="UV"></p>
               </div>
             </div>

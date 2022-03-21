@@ -2,6 +2,7 @@
 .todayContainer{
     border: black 2px solid;
     margin-bottom: 15px;
+    padding: 5px;
 }
 h4{
     font-weight: bolder;
@@ -13,9 +14,11 @@ h4{
 }
 .card-header{
     color: white;
+    margin-left: 5px;
 }
 .card-content{
     color: white;
+    font-size: x-large;
 }
 .title{
     background: rgb(2,0,36);
