@@ -1,6 +1,6 @@
 # Weather Dashboard
 ## Description
-This is a dashboard that display the weather for your zip code. It also includes a 5 day forecast. each card displays date, temp, humidity, wind speed, and the location. 
+This is a dashboard that display the weather for your city. It also includes a 5 day forecast. each card displays date, temp, humidity, wind speed, and the location. 
 
 ## Issues 
 Currently no UV index, or history of searches
