@@ -85,11 +85,15 @@ var fivedayForecast = function (data) {
 
         var createDivEl = document.createElement("div")
         var createDateEl = document.createElement("h4")
+        var createimageEl = document.createElement("img")
         var createTempEl = document.createElement("p")
         var createHumidEl = document.createElement("p")
         var createWindEl = document.createElement("p")
+        
+        
         //make elements children of row
         fiveForecastEl.appendChild(createDivEl);
+        createDivEl.appendChild (createimageEl);
         createDivEl.appendChild(createDateEl);
         createDivEl.appendChild(createTempEl);
         createDivEl.appendChild(createHumidEl);
@@ -100,6 +104,7 @@ var fivedayForecast = function (data) {
         createTempEl.innerText = "Temp " + foreTemp ;
         createHumidEl.innerText = "Humidity " + foreHumid + "%";
         createWindEl.innerText = foreWind + " MPH";
+        createimageEl.setAttribute("src", "http://openweathermap.org/img/w/" + data.daily[i].weather[0].icon + ".png");
 
         //add bulma API styling
         $(createDivEl).addClass("column card");
